@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyMVCApplication.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +10,21 @@ namespace MyMVCApplication.Controllers
     public class StudentController : Controller
     {
         // GET: Student
-        public String Index()
+        public ActionResult Index()
         {
-            return "Test Student";
+            var studentList = new List<Student>{
+                            new Student() { StudentId = 1, StudentName = "John", age = 18 } ,
+                            new Student() { StudentId = 2, StudentName = "Steve",  age = 21 } ,
+                            new Student() { StudentId = 3, StudentName = "Bill",  age = 25 } ,
+                            new Student() { StudentId = 4, StudentName = "Ram" , age = 20 } ,
+                            new Student() { StudentId = 5, StudentName = "Ron" , age = 31 } ,
+                            new Student() { StudentId = 4, StudentName = "Chris" , age = 17 } ,
+                            new Student() { StudentId = 4, StudentName = "Rob" , age = 19 }
+                        };
+            // Get the students from the database in the real application
+
+            return View(studentList);
+
         }
     }
 }
